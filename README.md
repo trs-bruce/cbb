@@ -1,6 +1,6 @@
 # CBB — TeraSilicon 可复用 IP 模块库（开源部分）
 
-TeraSilicon（特瑞思）CBB（Common Building Block）库的开源专区。这里的每个模块都来自**经过流片验证**的企业级 IP 库，覆盖跨时钟域（CDC）、编码、FIFO、计数器、仲裁、时钟复位、整数/浮点运算、存储与 SIMD 等主题。
+TeraSilicon（特瑞思）CBB（Common Building Block）库的开源专区。这里的每个模块都来自**经过完整验证**的企业级 IP 库（UT 覆盖率、SpyGlass lint、DC 综合 PPA），覆盖跨时钟域（CDC）、编码、FIFO、计数器、仲裁、时钟复位、整数/浮点运算、存储与 SIMD 等主题。
 
 配套讲解见微信公众号系列文章 **《CBB 每日一讲》**（每天拆解一个模块：解决什么问题、设计好在哪里、边界在哪里）。
 
