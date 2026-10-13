@@ -41,6 +41,7 @@ cbb/
 | `cbb_cdc_p2p` | 脉冲同步器（Toggle 编码，快/慢速可配） | 第 7 期 |
 | `cbb_cdc_gray` | 格雷码同步器（多比特总线跨域，相邻值仅 1 bit 变化） | 第 8 期 |
 | `cbb_cdc_demux_lvl` | 电平选通型 DMUX 同步器（数据钉死直穿 + valid 同步链选通） | 第 9 期 |
+| `cbb_cdc_demux_lvl_fb` | 带反馈的电平选通型 DMUX 同步器（目的域 ack 回传，源端收到 ack 才撤 valid） | 第 10 期 |
 
 ## 使用说明
 
