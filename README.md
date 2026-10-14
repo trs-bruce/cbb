@@ -45,6 +45,7 @@ cbb/
 | `cbb_cdc_demux_pul_l` | 脉冲触发型 DMUX 同步器（源端电平打拍测沿成脉冲，同步链搬 toggle，目的域恢复单周期脉冲） | 第 11 期 |
 | `cbb_cdc_demux_pul_p` | 脉冲直通型 DMUX 同步器（源端脉冲直接翻转 toggle，链路最短） | 第 12 期 |
 | `cbb_cdc_demux_pul_fb` | 带反馈握手的脉冲 DMUX 同步器（目的域 ack 单拍回执，源端 req 闭环清零） | 第 13 期 |
+| `cbb_afifo` | 异步 FIFO（Gray 码指针跨域 + 双口共享存储，Show-ahead 读） | 第 14 期 |
 
 ## 使用说明
 
