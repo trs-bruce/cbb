@@ -120,7 +120,7 @@ Gray 状态用于表示读写位置的连续进展。相邻进展的编码变化
 
 ### 3.2 总体架构
 
-![cbb_afifo 总体架构](diagram/cbb_afifo_architecture.svg)
+![cbb_afifo 总体架构](figures/cbb_afifo_architecture.svg)
 
 写入数据直接进入共享存储阵列；当读域确认非空时，当前读位置对应的数据以组合 Show-ahead 方式输出。写域和读域分别依据本地请求及本地域的 `full`、`empty` 状态推进本地进展，并使用经两级同步后的远端 Gray 进展形成本地域状态判断。数据本身不经过状态同步路径，因此远端写入或读取的影响只能在同步延迟后间接改变对端的满空判断。
 
@@ -156,19 +156,19 @@ Gray 状态用于表示读写位置的连续进展。相邻进展的编码变化
 
 ### 6.1 协调复位、首字可见与读取
 
-![协调复位、首字跨域可见与读取](assets/waveforms/cbb_afifo_reset-first-word-show-ahead.svg)
+![协调复位、首字跨域可见与读取](figures/cbb_afifo_reset-first-word-show-ahead.svg)
 
 结论：读域确认非空后，首字成为有效队首。
 
 ### 6.2 连续组合 Show-ahead 与空读保护（初始队列 `[D0,D1,D2]`）
 
-![连续组合 Show-ahead 与空读保护](assets/waveforms/cbb_afifo_continuous-read-empty-reject.svg)
+![连续组合 Show-ahead 与空读保护](figures/cbb_afifo_continuous-read-empty-reject.svg)
 
 结论：成功读取使组合队首逐字前移，`empty` 置位后的请求不再消费数据。
 
 ### 6.3 写满、满写拒绝、远端释放与重试（`DEPTH=4`，初始 `[D0,D1,D2]`）
 
-![写满、满写拒绝、远端释放与重试](assets/waveforms/cbb_afifo_fill-full-read-release-retry.svg)
+![写满、满写拒绝、远端释放与重试](figures/cbb_afifo_fill-full-read-release-retry.svg)
 
 结论：远端读取的影响在写域可见前，`full` 可保持；`D4` 只能在 `full` 撤销后重试。
 

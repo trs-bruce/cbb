@@ -1,5 +1,6 @@
 // ======================================================================================================================
-// (c) Copyright 2026 XXX Company, Inc. All rights reserved.
+// Copyright 2026 TeraSilicon, Inc.（特瑞思）
+// SPDX-License-Identifier: Apache-2.0
 // Designer       : CBB Team
 // Project        : CBB_AFIFO
 // Create Date    : 2026-07-27
