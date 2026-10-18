@@ -29,6 +29,7 @@ cbb/
 │   │   ├── cbb_8b10b_enc.v
 │   │   ├── cbb_8b10b_enc_ug.md
 │   │   └── figures/cbb_8b10b_enc_wave_*.png
+│   └── cbb_8b10b_dec/
 └── （更多主题分组随系列推进陆续开放）
 ```
 
@@ -51,6 +52,7 @@ cbb/
 | `cbb_cdc_demux_pul_fb` | 带反馈握手的脉冲 DMUX 同步器（目的域 ack 单拍回执，源端 req 闭环清零） | 第 13 期 |
 | `cbb_afifo` | 异步 FIFO（Gray 码指针跨域 + 双口共享存储，Show-ahead 读） | 第 14 期 |
 | `cbb_8b10b_enc` | 8b/10b 编码器（IEEE 802.3 Clause 36，RD 状态机，5b/6b + 3b/4b 结构化子编码） | 第 15 期 |
+| `cbb_8b10b_dec` | 8b/10b 解码器（码表解码 + K 码识别 + 非法码字/RD 校验，528-bit 精简 ROM） | 第 16 期 |
 
 ## 使用说明
 
