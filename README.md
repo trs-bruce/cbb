@@ -24,7 +24,11 @@ cbb/
 │   │   ├── cbb_cdc_edge_r.v
 │   │   ├── cbb_cdc_edge_r_ug.md
 │   │   └── figures/cbb_cdc_edge_r_timing.svg
-│   └── cbb_cdc_edge_f/
+│   ├── cbb_cdc_edge_f/
+│   ├── cbb_8b10b_enc/
+│   │   ├── cbb_8b10b_enc.v
+│   │   ├── cbb_8b10b_enc_ug.md
+│   │   └── figures/cbb_8b10b_enc_wave_*.png
 └── （更多主题分组随系列推进陆续开放）
 ```
 
@@ -46,6 +50,7 @@ cbb/
 | `cbb_cdc_demux_pul_p` | 脉冲直通型 DMUX 同步器（源端脉冲直接翻转 toggle，链路最短） | 第 12 期 |
 | `cbb_cdc_demux_pul_fb` | 带反馈握手的脉冲 DMUX 同步器（目的域 ack 单拍回执，源端 req 闭环清零） | 第 13 期 |
 | `cbb_afifo` | 异步 FIFO（Gray 码指针跨域 + 双口共享存储，Show-ahead 读） | 第 14 期 |
+| `cbb_8b10b_enc` | 8b/10b 编码器（IEEE 802.3 Clause 36，RD 状态机，5b/6b + 3b/4b 结构化子编码） | 第 15 期 |
 
 ## 使用说明
 
