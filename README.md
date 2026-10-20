@@ -29,7 +29,13 @@ cbb/
 │   │   ├── cbb_8b10b_enc.v
 │   │   ├── cbb_8b10b_enc_ug.md
 │   │   └── figures/cbb_8b10b_enc_wave_*.png
-│   └── cbb_8b10b_dec/
+│   ├── cbb_8b10b_dec/
+│   ├── cbb_4b5b_enc/
+│   │   ├── cbb_4b5b_enc.v
+│   │   ├── cbb_4b5b_enc_ug.md
+│   │   └── figures/cbb_4b5b_enc_wave_*.png
+│   ├── cbb_4b5b_dec/
+│   └── cbb_4b5b_unbal/
 └── （更多主题分组随系列推进陆续开放）
 ```
 
@@ -51,8 +57,11 @@ cbb/
 | `cbb_cdc_demux_pul_p` | 脉冲直通型 DMUX 同步器（源端脉冲直接翻转 toggle，链路最短） | 第 12 期 |
 | `cbb_cdc_demux_pul_fb` | 带反馈握手的脉冲 DMUX 同步器（目的域 ack 单拍回执，源端 req 闭环清零） | 第 13 期 |
 | `cbb_afifo` | 异步 FIFO（Gray 码指针跨域 + 双口共享存储，Show-ahead 读） | 第 14 期 |
-| `cbb_8b10b_enc` | 8b/10b 编码器（IEEE 802.3 Clause 36，RD 状态机，5b/6b + 3b/4b 结构化子编码） | 第 15 期 |
-| `cbb_8b10b_dec` | 8b/10b 解码器（码表解码 + K 码识别 + 非法码字/RD 校验，528-bit 精简 ROM） | 第 16 期 |
+| `cbb_8b10b_enc` | 8b/10b 编码器（IEEE 802.3 Clause 36，RD 状态机，5b/6b + 3b/4b 结构化子编码） | 第 17 期 |
+| `cbb_8b10b_dec` | 8b/10b 解码器（码表解码 + K 码识别 + 非法码字/RD 校验，528-bit 精简 ROM） | 第 18 期 |
+| `cbb_4b5b_enc` | 4b/5b 编码器（IEEE 802.3 Clause 24 / FDDI，32×5 查找表，无 RD 状态机） | 第 20 期 |
+| `cbb_4b5b_dec` | 4b/5b 解码器（码表逆映射 + 非法码字检测，6 控制码 / 10 非法码） | 第 21 期 |
+| `cbb_4b5b_unbal` | 4b/5b 平衡预测器（跳变密度与 ones 计数预判，无状态查表） | 第 22 期 |
 
 ## 使用说明
 
