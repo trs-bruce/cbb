@@ -35,7 +35,10 @@ cbb/
 │   │   ├── cbb_4b5b_enc_ug.md
 │   │   └── figures/cbb_4b5b_enc_wave_*.png
 │   ├── cbb_4b5b_dec/
-│   └── cbb_4b5b_unbal/
+│   ├── cbb_4b5b_unbal/
+│   ├── cbb_parity/
+│   ├── cbb_crc_p/
+│   └── cbb_crc_s/
 └── （更多主题分组随系列推进陆续开放）
 ```
 
@@ -62,6 +65,9 @@ cbb/
 | `cbb_4b5b_enc` | 4b/5b 编码器（IEEE 802.3 Clause 24 / FDDI，32×5 查找表，无 RD 状态机） | 第 20 期 |
 | `cbb_4b5b_dec` | 4b/5b 解码器（码表逆映射 + 非法码字检测，6 控制码 / 10 非法码） | 第 21 期 |
 | `cbb_4b5b_unbal` | 4b/5b 平衡预测器（跳变密度与 ones 计数预判，无状态查表） | 第 22 期 |
+| `cbb_parity` | 参数化奇/偶校验生成器（1~256 bit，纯组合 XOR/XNOR 归约树） | 第 23 期 |
+| `cbb_crc_p` | 并行组合 CRC 生成/校验器（多项式 2~64 bit、数据 1~2560 bit、双支路中间余数比对） | 第 24 期 |
+| `cbb_crc_s` | 串行 CRC 生成/校验器（drain 排空发送、上下文切换、逐拍比较校验、stall 保持） | 第 25 期 |
 
 ## 使用说明
 
