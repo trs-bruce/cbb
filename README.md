@@ -40,6 +40,20 @@ cbb/
 │   ├── cbb_parity/
 │   ├── cbb_crc_p/
 │   └── cbb_crc_s/
+├── ecc/                         # ECC 校验（SEC-DED 汉明码）
+│   ├── cbb_ecc_enc/
+│   │   ├── cbb_ecc_enc.v        # RTL 源码
+│   │   ├── cbb_ecc_enc_ug.md    # 用户指南
+│   │   └── figures/             # 图随文
+│   └── cbb_ecc_dec/
+│       ├── cbb_ecc_dec.v
+│       ├── cbb_ecc_dec_ug.md
+│       └── figures/
+├── cnt/                         # 计数器家族
+│   ├── cbb_cnt_bin/             # 同步二进制加减计数器（回绕/饱和可选）
+│   ├── cbb_cnt_gray/            # 格雷码计数器（CDC 输出）
+│   ├── cbb_cnt_mod/             # 动态模值循环计数器
+│   └── cbb_cnt_fast/            # 预定标高频计数器
 └── （更多主题分组随系列推进陆续开放）
 ```
 
@@ -70,6 +84,12 @@ cbb/
 | `cbb_parity` | 参数化奇/偶校验生成器（1~256 bit，纯组合 XOR/XNOR 归约树） | 第 23 期 |
 | `cbb_crc_p` | 并行组合 CRC 生成/校验器（多项式 2~64 bit、数据 1~2560 bit、双支路中间余数比对） | 第 24 期 |
 | `cbb_crc_s` | 串行 CRC 生成/校验器（drain 排空发送、上下文切换、逐拍比较校验、stall 保持） | 第 25 期 |
+| `cbb_ecc_enc` | SEC-DED ECC 编码器（汉明码 + 全局奇偶校验位，纯组合穿通架构，数据位序不变直通） | 第 26 期 |
+| `cbb_ecc_dec` | SEC-DED ECC 译码器（syndrome 计算 + 错误分类，自动纠正单比特错误，标志位上报） | 第 27 期 |
+| `cbb_cnt_bin` | 同步二进制加减计数器（串行进位结构，回绕/饱和可选，复位/清零/置数/方向全同步） | 第 28 期 |
+| `cbb_cnt_gray` | 格雷码计数器（二进制计数核心 + 输出级格雷码寄存，跨时钟域安全输出） | 第 29 期 |
+| `cbb_cnt_mod` | 动态模值循环计数器（支持任意非 2^N 模数与运行中模值切换） | 第 30 期 |
+| `cbb_cnt_fast` | 预定标高频计数器（低位快计 + 高位慢计拼接，拆短关键路径，1 GHz@TSMC 12nm） | 第 31 期 |
 
 ## 使用说明
 
