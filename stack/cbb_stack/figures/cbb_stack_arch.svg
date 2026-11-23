@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" style="background:#f8fafc">
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1f2937" /></marker>
+    <marker id="ah-b" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2878B5" /></marker>
+  </defs>
+  <rect width="1440" height="560" fill="#f8fafc" />
+  <text x="720.0" y="30" text-anchor="middle" font-size="21" font-weight="600" fill="#1f2937" letter-spacing="0.2">cbb_stack Overall Architecture</text>
+  <rect x="40" y="78" width="240" height="104" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="160.0" y="118" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">din</text>
+  <text x="160.0" y="142" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937" font-style="italic" opacity="0.85">WIDTH bit</text>
+  <rect x="320" y="78" width="240" height="104" fill="#FFF1DC" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="440.0" y="120" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">Storage Adapter</text>
+  <text x="440.0" y="140" text-anchor="middle" font-size="14" font-weight="500" fill="#1f2937">CBB_STACK_MEM</text>
+  <text x="440.0" y="160" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937" font-style="italic" opacity="0.85">Sync dual-port RAM</text>
+  <rect x="620" y="78" width="240" height="104" fill="#F1E8FF" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="740.0" y="120" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">Pop Pipeline</text>
+  <text x="740.0" y="140" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937">pop_pending_q + dout</text>
+  <text x="740.0" y="160" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937" font-style="italic" opacity="0.85">Registered response</text>
+  <rect x="900" y="78" width="240" height="104" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="1020.0" y="118" text-anchor="middle" font-size="16" font-weight="600" fill="#1f2937">dout / dout_valid</text>
+  <text x="1020.0" y="142" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937" font-style="italic" opacity="0.85">CBB extension</text>
+  <rect x="302" y="222" width="776" height="196" fill="#EEF5FB" opacity="0.55" stroke="#163A5F" stroke-width="1.2" stroke-dasharray="8 5" rx="12" />
+  <text x="672.0" y="246" text-anchor="middle" font-size="16" font-weight="700" fill="#1f2937">CBB_STACK_CTRL</text>
+  <rect x="320" y="268" width="240" height="104" fill="#EEF5FB" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="440.0" y="310" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">Request Guard</text>
+  <text x="440.0" y="330" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937">Push-first rule</text>
+  <text x="440.0" y="350" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937" font-style="italic" opacity="0.85">we_n / pop_fire</text>
+  <rect x="620" y="268" width="240" height="104" fill="#E8F5E9" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="740.0" y="310" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">Occupancy count_q</text>
+  <text x="740.0" y="330" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937">Single authoritative state</text>
+  <text x="740.0" y="350" text-anchor="middle" font-size="12" font-weight="500" fill="#1f2937" font-style="italic" opacity="0.85">wr_addr = count, rd_addr = count-1</text>
+  <rect x="40" y="268" width="240" height="104" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="160.0" y="312" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">push / pop</text>
+  <text x="160.0" y="336" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937" font-style="italic" opacity="0.85">Push priority</text>
+  <rect x="900" y="268" width="240" height="104" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="1020.0" y="304" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2937">empty</text>
+  <text x="1020.0" y="324" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2937">full / half_full</text>
+  <text x="1020.0" y="344" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2937">error</text>
+  <rect x="40" y="452" width="240" height="40" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="160.0" y="478" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2937">clk / rst_n</text>
+  <text x="380.0" y="478" text-anchor="middle" font-size="13" font-weight="500" fill="#1f2937">Async reset clears count and visible state, not the RAM array</text>
+  <line x1="280" y1="130.0" x2="320" y2="130.0" stroke="#374151" stroke-width="1.4" marker-end="url(#ah-b)" />
+  <text x="320" y="122.0" text-anchor="middle" font-size="13" fill="#374151">wr_data</text>
+  <line x1="560" y1="130.0" x2="620" y2="130.0" stroke="#374151" stroke-width="1.4" marker-end="url(#ah-b)" />
+  <text x="600" y="122.0" text-anchor="middle" font-size="13" fill="#374151">rd_data</text>
+  <line x1="860" y1="130.0" x2="900" y2="130.0" stroke="#374151" stroke-width="1.4" marker-end="url(#ah-b)" />
+  <text x="900" y="122.0" text-anchor="middle" font-size="13" fill="#374151">dout_valid + dout</text>
+  <line x1="280" y1="320.0" x2="320" y2="320.0" stroke="#374151" stroke-width="1.4" marker-end="url(#ah)" />
+  <text x="320" y="312.0" text-anchor="middle" font-size="13" fill="#374151">requests</text>
+  <line x1="560" y1="320.0" x2="620" y2="320.0" stroke="#374151" stroke-width="1.4" marker-end="url(#ah)" />
+  <text x="600" y="312.0" text-anchor="middle" font-size="13" fill="#374151">count updates</text>
+  <line x1="860" y1="320.0" x2="900" y2="320.0" stroke="#374151" stroke-width="1.4" marker-end="url(#ah)" />
+  <text x="900" y="312.0" text-anchor="middle" font-size="13" fill="#374151">registered status</text>
+  <line x1="440.0" y1="222" x2="440.0" y2="182" stroke="#374151" stroke-width="1.4" marker-end="url(#ah)" />
+  <text x="512.0" y="206.0" text-anchor="middle" font-size="13" fill="#374151">we_n / wr_addr / rd_addr</text>
+  <line x1="740.0" y1="222" x2="740.0" y2="182" stroke="#374151" stroke-width="1.4" marker-end="url(#ah)" />
+  <text x="806.0" y="206.0" text-anchor="middle" font-size="13" fill="#374151">pop_fire (read enable)</text>
+</svg>
