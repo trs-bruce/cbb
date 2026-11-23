@@ -68,7 +68,19 @@ cbb/
 ├── fifo/                        # 同步 FIFO 家族
 │   ├── cbb_sfifo/               # 同步 FIFO（show-ahead 组合读，非 2 幂深度，almost 阈值可配）
 │   ├── cbb_sfifo_pt/            # 直通 FIFO（空写旁路，写拍当拍可见，同写读零痕迹直通）
-│   └── cbb_sfifo_or/            # 寄存读出口 FIFO（预取背靠背满频读，读路径与存储隔离）
+│   ├── cbb_sfifo_or/            # 寄存读出口 FIFO（预取背靠背满频读，读路径与存储隔离）
+│   └── cbb_sfifo_ram/           # SRAM 存储同步 FIFO（预取队首缓冲吸收读延迟，非 2 幂深度）
+├── mem/                         # 存储家族
+│   ├── cbb_ram_sp/              # 单口同步 SRAM（行为级 / TSMC 硬宏 / FPGA 三分支）
+│   ├── cbb_ram_tp/              # 两端口同步 SRAM（Port A 写 Port B 读，读写时钟域独立）
+│   ├── cbb_ram_dp/              # 真双口同步 SRAM（双端口并发读写，同址冲突硬件仲裁）
+│   └── cbb_rom/                 # 单口同步 ROM（INIT_FILE 初始化，运行期物理只读）
+├── stack/                       # 栈家族（控制器/存储分层）
+│   ├── cbb_stack/               # 同步 LIFO 栈顶层（DW_stack 控制语义 + dout_valid 扩展）
+│   ├── cbb_stack_ctrl/          # 栈控制器（count_q 唯一权威状态，push 优先）
+│   └── cbb_stack_mem/           # 栈存储（独立读写双口，越界地址编码静默拦截）
+├── crg/                         # 时钟与复位家族
+│   └── cbb_crg_rstdb/           # 复位输入同步 + 双边滤波消抖（同步/异步输入，阈值可配）
 └── （更多主题分组随系列推进陆续开放）
 ```
 
@@ -118,11 +130,21 @@ cbb/
 | `cbb_sfifo` | 同步 FIFO（show-ahead 组合读，精确非 2 幂深度，almost 阈值任意配） | 第 42 期 |
 | `cbb_sfifo_pt` | 直通同步 FIFO（空写旁路：写拍当拍可见，空写+读同拍零痕迹直通） | 第 43 期 |
 | `cbb_sfifo_or` | 寄存读出口 FIFO（预取背靠背满频读，+4.7% 面积买断读路径存储延迟） | 第 44 期 |
+| `cbb_sfifo_ram` | 基于 SRAM 的同步 FIFO（预取队首缓冲吸收读延迟，非 2 幂深度，1 GHz@TSMC 12nm） | 第 45 期 |
+| `cbb_ram_sp` | 单口同步 SRAM（行为级 / 硬宏 / FPGA 三分支，深度 = 2^ADDR_WIDTH） | 第 46 期 |
+| `cbb_ram_tp` | 两端口同步 SRAM（Port A 写 Port B 读，读写时钟域独立，天然支持跨时钟域） | 第 47 期 |
+| `cbb_ram_dp` | 真双口同步 SRAM（双端口并发读写不同地址，同址并发写硬件仲裁） | 第 48 期 |
+| `cbb_rom` | 单口同步 ROM（$readmemh 初始化，运行期物理只读，综合防常量优化） | 第 49 期 |
+| `cbb_stack` | 同步 LIFO 栈（DW_stack 控制语义，count_q 唯一权威状态，dout_valid 单拍握手扩展） | 第 50 期 |
+| `cbb_stack_mem` | 栈存储 wrapper（独立读写双口 RAM，位宽切片 × 深度分 bank，越界地址静默拦截） | 第 51 期 |
+| `cbb_stack_ctrl` | 栈控制器（push 优先，地址由占用量组合预计算，状态输出与计数更新拆关键路径） | 第 52 期 |
+| `cbb_crg_rstdb` | 复位输入同步 + 双边滤波消抖（同步/异步输入可选，同步级数与消抖阈值任意配） | 第 53 期 |
 
 ## 使用说明
 
 - **许可证**：Apache-2.0，可自由用于商业与非商业项目（详见 [LICENSE](LICENSE)）。
 - **源码定位**：本仓库源码用于**分享与评审**，模块引用的 CDC 公共宏在同组目录的 `cbb_cdc_define.v`；仿真/综合环境（testbench、filelist、脚本）不随本仓库提供。
+- **模块间引用**：`cbb_stack` 顶层例化同组目录的 `cbb_stack_ctrl` 与 `cbb_stack_mem`；`cbb_sfifo_ram` 例化 `mem/` 目录的 `cbb_ram_tp`；`cbb_crg_rstdb` 例化 `cdc/` 目录的 `cbb_cdc_lvl`。
 - **工艺相关**：RTL 中 TSMC 12nm 等工艺宏分支（`TSMC_12` / `FPGA_XILINX` / `FPGA_ALTERA`）保留用于参考，默认 RTL 分支无任何工艺依赖。
 - **质量口径**：每个模块的企业级验证报告（UT 覆盖率、SpyGlass lint、DC 综合 PPA）随系列文章讲解，摘要见各期文章。
 
