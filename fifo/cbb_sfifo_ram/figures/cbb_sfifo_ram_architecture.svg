@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1562" height="530" viewBox="0 0 1562 530" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" style="background:#f8fafc">
+  <defs>
+    <marker id="ah-solid" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#1f2937" /></marker>
+    <marker id="ah-thin" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#374151" /></marker>
+    <marker id="ah-stream" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#5C5C00" /></marker>
+    <marker id="ah-axil" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#0D47A1" /></marker>
+    <marker id="ah-tilelink" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#00796B" /></marker>
+    <marker id="ah-cdc" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#6A1B9A" /></marker>
+    <marker id="ah-open" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0.5,0.5 L0.5,5.5 L8,3 z" fill="#f8fafc" stroke="#1f2937" stroke-width="1" /></marker>
+  <marker id="cbb-data-arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2878B5" /></marker><marker id="cbb-control-arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4B5563" /></marker><marker id="cbb-status-arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4B5563" /></marker><marker id="cbb-clock-arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4B5563" /></marker><marker id="cbb-reset-arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#4B5563" /></marker></defs>
+  <rect width="1562" height="530" fill="#f8fafc" id="_canvas_bg" />
+  <text x="781.0" y="24" text-anchor="middle" font-size="21" font-weight="600" fill="#1f2937" letter-spacing="0.2">cbb_sfifo_ram Overall Architecture</text>
+  <rect id="wr_data_in" x="36" y="66" width="230" height="90" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="151" y="116" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">wr_data</text>
+  <rect id="write_alloc" x="351" y="66" width="230" height="90" fill="#EEF5FB" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="466" y="109" text-anchor="middle" font-size="18" font-weight="600" fill="#1f2937">Write Allocation</text>
+  <text x="466" y="125" text-anchor="middle" font-size="15" font-style="italic" fill="#1f2937" opacity="0.85">Route new tail data</text>
+  <rect id="sram" x="666" y="66" width="230" height="90" fill="#FFF1DC" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="781" y="109" text-anchor="middle" font-size="18" font-weight="600" fill="#1f2937">Synchronous SRAM</text>
+  <text x="781" y="125" text-anchor="middle" font-size="15" font-style="italic" fill="#1f2937" opacity="0.85">Registered read response</text>
+  <rect id="head_buffer" x="981" y="66" width="230" height="90" fill="#F1E8FF" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="1096" y="109" text-anchor="middle" font-size="18" font-weight="600" fill="#1f2937">Head Buffer</text>
+  <text x="1096" y="125" text-anchor="middle" font-size="15" font-style="italic" fill="#1f2937" opacity="0.85">Ready FIFO head</text>
+  <rect id="rd_data_out" x="1296" y="66" width="230" height="90" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="1411" y="116" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">rd_data</text>
+  <rect id="request_in" x="36" y="216" width="230" height="90" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="151" y="258" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">wr_en</text>
+  <text x="151" y="274" text-anchor="middle" font-size="17" font-weight="500" fill="#1f2937">rd_en</text>
+  <rect id="prefetch_state" x="666" y="216" width="230" height="90" fill="#E8F5E9" stroke="#163A5F" stroke-width="1.4" rx="8" />
+  <text x="781" y="259" text-anchor="middle" font-size="18" font-weight="600" fill="#1f2937">Prefetch &amp; State Control</text>
+  <text x="781" y="275" text-anchor="middle" font-size="15" font-style="italic" fill="#1f2937" opacity="0.85">Allocate, prefetch, status</text>
+  <rect id="status_out" x="1296" y="216" width="230" height="90" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="1411" y="258" text-anchor="middle" font-size="17" font-weight="600" fill="#1f2937">full</text>
+  <text x="1411" y="274" text-anchor="middle" font-size="17" font-weight="500" fill="#1f2937">empty</text>
+  <rect id="clk_in" x="36" y="366" width="230" height="34" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="151" y="388" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">clk</text>
+  <rect id="reset_in" x="36" y="404" width="230" height="34" fill="#FFFFFF" stroke="#163A5F" stroke-width="1.4" rx="8" stroke-dasharray="6 4" />
+  <text x="151" y="426" text-anchor="middle" font-size="14" font-weight="600" fill="#1f2937">rst_n</text>
+  <mask id="edge-label-clearance" maskUnits="userSpaceOnUse">
+    <rect width="1562" height="530" fill="#ffffff" />
+    <rect x="279.8" y="86.0" width="57.4" height="19.0" fill="#000000" />
+    <rect x="604.0" y="86.0" width="39.0" height="19.0" fill="#000000" />
+    <rect x="914.0" y="86.0" width="49.0" height="19.0" fill="#000000" />
+    <rect x="690.2" y="33.0" width="106.5" height="19.0" fill="#000000" />
+    <rect x="1226.1" y="86.0" width="54.9" height="19.0" fill="#000000" />
+    <rect x="418.1" y="236.0" width="95.7" height="19.0" fill="#000000" />
+    <rect x="541.1" y="161.0" width="94.9" height="19.0" fill="#000000" />
+    <rect x="787.0" y="176.5" width="52.3" height="19.0" fill="#000000" />
+    <rect x="908.1" y="161.0" width="130.7" height="19.0" fill="#000000" />
+    <rect x="1057.7" y="236.0" width="76.5" height="19.0" fill="#000000" />
+    <rect x="497.3" y="358.0" width="22.3" height="19.0" fill="#000000" />
+    <rect x="519.8" y="395.5" width="37.3" height="19.0" fill="#000000" />
+  </mask>
+  <path id="edge_wr_data_in_to_write_alloc" d="M 266.0,111.0 L 351.0,111.0" stroke="#2878B5" stroke-width="2.5" fill="none" marker-end="url(#cbb-data-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_write_alloc_to_sram" d="M 581.0,111.0 L 666.0,111.0" stroke="#2878B5" stroke-width="2.5" fill="none" marker-end="url(#cbb-data-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_sram_to_head_buffer" d="M 896.0,111.0 L 981.0,111.0" stroke="#2878B5" stroke-width="2.5" fill="none" marker-end="url(#cbb-data-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_write_alloc_to_head_buffer" d="M 466.0,66.0 L 466.0,48.0 L 1021.0,48.0 L 1021.0,66.0" stroke="#2878B5" stroke-width="2.5" fill="none" marker-end="url(#cbb-data-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_head_buffer_to_rd_data_out" d="M 1211.0,111.0 L 1296.0,111.0" stroke="#2878B5" stroke-width="2.5" fill="none" marker-end="url(#cbb-data-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_request_in_to_prefetch_state" d="M 266.0,261.0 L 666.0,261.0" stroke="#4B5563" stroke-width="2" fill="none" marker-end="url(#cbb-control-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_prefetch_state_to_write_alloc" d="M 711.0,216.0 L 711.0,186.0 L 466.0,186.0 L 466.0,156.0" stroke="#4B5563" stroke-width="2" fill="none" marker-end="url(#cbb-control-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_prefetch_state_to_sram" d="M 781.0,216.0 L 781.0,156.0" stroke="#4B5563" stroke-width="2" fill="none" marker-end="url(#cbb-control-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_prefetch_state_to_head_buffer" d="M 851.0,216.0 L 851.0,186.0 L 1096.0,186.0 L 1096.0,156.0" stroke="#4B5563" stroke-width="2" fill="none" marker-end="url(#cbb-control-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_prefetch_state_to_status_out" d="M 896.0,261.0 L 1296.0,261.0" stroke="#4B5563" stroke-width="2" fill="none" marker-end="url(#cbb-status-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_clk_in_to_prefetch_state" d="M 266.0,383.0 L 751.0,383.0 L 751.0,306.0" stroke="#4B5563" stroke-width="2" fill="none" marker-end="url(#cbb-clock-arrow)" mask="url(#edge-label-clearance)" />
+  <path id="edge_reset_in_to_prefetch_state" d="M 266.0,420.5 L 811.0,420.5 L 811.0,306.0" stroke="#4B5563" stroke-width="2" fill="none" marker-end="url(#cbb-reset-arrow)" mask="url(#edge-label-clearance)" />
+  <text x="308.5" y="100.8" text-anchor="middle" font-size="15" fill="#1f2937">wr_data</text>
+  <text x="623.5" y="100.8" text-anchor="middle" font-size="15" fill="#1f2937">Write</text>
+  <text x="938.5" y="100.8" text-anchor="middle" font-size="15" fill="#1f2937">Return</text>
+  <text x="743.5" y="47.8" text-anchor="middle" font-size="15" fill="#1f2937">Direct Head Fill</text>
+  <text x="1253.5" y="100.8" text-anchor="middle" font-size="15" fill="#1f2937">rd_data</text>
+  <text x="466.0" y="250.8" text-anchor="middle" font-size="15" fill="#1f2937">wr_en / rd_en</text>
+  <text x="588.5" y="175.8" text-anchor="middle" font-size="15" fill="#1f2937">Write Routing</text>
+  <text x="813.2" y="191.2" text-anchor="middle" font-size="15" fill="#1f2937">Access</text>
+  <text x="973.5" y="175.8" text-anchor="middle" font-size="15" fill="#1f2937">Prefetch / Advance</text>
+  <text x="1096.0" y="250.8" text-anchor="middle" font-size="15" fill="#1f2937">full / empty</text>
+  <text x="508.5" y="372.8" text-anchor="middle" font-size="15" fill="#1f2937">clk</text>
+  <text x="538.5" y="410.2" text-anchor="middle" font-size="15" fill="#1f2937">rst_n</text>
+</svg>
